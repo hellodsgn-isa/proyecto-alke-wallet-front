@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alke Wallet</title>
+  <script src="js/common.js"></script>
+</head>
+<body>
+  <!--
+    index.html es solo el punto de entrada del proyecto (Lección 1).
+    No tiene interfaz propia: redirige a menu.html si ya hay una
+    sesión activa, o a login.html si el usuario todavía no ingresó.
+  -->
+  <script>
+    seedDemoData();
+    window.location.href = getCurrentUser() ? 'menu.html' : 'login.html';
+  </script>
+</body>
+</html>

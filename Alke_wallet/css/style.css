@@ -1,0 +1,388 @@
+/* ==========================================================
+   ALKE WALLET — Hoja de estilos propia
+   Se apoya en Bootstrap para el grid/componentes y aquí solo
+   se define la identidad visual (colores, tipografía, tarjetas).
+   ========================================================== */
+
+:root{
+  --navy:      #171320;
+  --navy-2:    #1F1A2B;
+  --deep:      #0C0A12;
+  --blue:      #66ACDB;
+  --green:     #71F05F;
+  --lavender:  #B9A9F2;
+  --ink:       #EDEAF6;
+  --muted:     #9A93AE;
+  --danger:    #F28B82;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+body{
+  background: var(--deep);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, .brand-name, .paycard-amount{
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ---------- Layout general ---------- */
+.app-shell{
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background:
+    radial-gradient(circle at 15% -10%, rgba(113,240,95,0.18), transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(102,172,219,0.18), transparent 45%),
+    var(--navy-2);
+}
+
+.app-main{ flex: 1; padding-bottom: 90px; }
+
+.container-app{ padding: 18px 20px 24px; }
+
+.view{ animation: fadeIn .25s ease; }
+@keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+/* ---------- Header ---------- */
+.app-header{
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.brand-mark{
+  width: 30px; height: 30px; border-radius: 9px;
+  background: linear-gradient(135deg, var(--green), var(--blue) 65%, var(--navy));
+}
+.brand-name{ font-weight: 600; font-size: 16px; }
+.brand-name strong{ font-weight: 700; }
+
+/* ---------- Auth (login / registro) ---------- */
+.auth-wrap{
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 56px 20px 24px;
+}
+.auth-title{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.card-glass{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 22px;
+  backdrop-filter: blur(10px);
+}
+
+.form-control{
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+.form-control:focus{
+  background: rgba(255,255,255,0.1);
+  border-color: var(--blue);
+  color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(102,172,219,0.25);
+}
+.form-control::placeholder{ color: var(--muted); }
+.form-label{ color: var(--muted); font-weight: 500; }
+
+.btn-gradient{
+  background: linear-gradient(120deg, var(--green), var(--blue));
+  color: #171320;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  padding: 12px;
+}
+.btn-gradient:hover{ color: #171320; filter: brightness(1.05); }
+
+.btn-outline-light{
+  border-radius: 14px;
+  border-color: rgba(255,255,255,0.25);
+  padding: 12px;
+}
+
+/* ---------- Tarjeta de saldo (paycard) ---------- */
+.paycard{
+  border-radius: 22px;
+  padding: 22px;
+  min-height: 140px;
+  position: relative;
+  color: #171320;
+  background: linear-gradient(135deg, var(--green) -20%, var(--blue) 55%, #2A2440 115%);
+}
+.paycard .chip{
+  width: 32px; height: 24px; border-radius: 6px;
+  background: rgba(255,255,255,0.55);
+  margin-bottom: 24px;
+}
+.paycard-amount{
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 4px;
+}
+.paycard-footer{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* ---------- Botones rápidos del dashboard ---------- */
+.quick-btn{
+  background: none;
+  border: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 500;
+  width: 100%;
+}
+.quick-ico{
+  width: 48px; height: 48px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  background: rgba(255,255,255,0.08);
+}
+.quick-ico.bg-green{ color: var(--green); }
+.quick-ico.bg-blue{ color: var(--blue); }
+.quick-ico.bg-lav{ color: var(--lavender); }
+
+/* ---------- Cajas de contenido ---------- */
+.tip-box{
+  background: rgba(113,240,95,0.1);
+  border: 1px solid rgba(113,240,95,0.3);
+  border-radius: 16px;
+  padding: 13px 15px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #DDF7D8;
+}
+.tip-box b{ color: var(--green); }
+
+.card-flat{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 16px;
+}
+
+.section-label{
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: none;
+}
+
+/* ---------- Movimientos / historial ---------- */
+.move-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.move-row .who{ display:flex; align-items:center; gap:10px; }
+.move-icon{
+  width: 34px; height: 34px; border-radius: 11px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(255,255,255,0.08);
+  font-size: 15px;
+}
+.move-title{ font-size: 13.5px; font-weight: 700; }
+.move-date{ font-size: 11px; color: var(--muted); margin-top: 2px; }
+.amt-pos{ color: var(--green); font-weight: 700; font-size: 13.5px; }
+.amt-neg{ color: var(--danger); font-weight: 700; font-size: 13.5px; }
+
+/* ---------- Contactos ---------- */
+.contact-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding: 11px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.contact-row .who{ display:flex; align-items:center; gap:10px; }
+.contact-avatar{
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--lavender), var(--blue));
+}
+.contact-name{ font-size: 13.5px; font-weight: 700; }
+.contact-sub{ font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.pill-btn{
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--ink);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.pill-btn:hover{ background: rgba(255,255,255,0.18); color: var(--ink); }
+
+/* ---------- Topbar de vistas internas ---------- */
+.view-topbar{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom: 18px;
+}
+.view-title{ font-size: 18px; font-weight: 600; margin: 0; }
+.btn-back{
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: none; color: var(--ink);
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ---------- Barra de navegación inferior ---------- */
+.app-tabbar{
+  position: fixed;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  display: flex; justify-content: space-around;
+  padding: 10px 10px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: rgba(23,19,32,0.9);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  z-index: 20;
+}
+.tab-btn{
+  width: 42px; height: 42px; border-radius: 50%;
+  border: none; background: none;
+  color: var(--muted); font-size: 17px;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration: none;
+}
+.tab-btn.active-tab{
+  background: linear-gradient(135deg, var(--green), var(--blue));
+  color: #171320;
+}
+
+/* ---------- Utilidades ---------- */
+.d-none{ display:none !important; }
+
+@media (max-width: 380px){
+  .auth-wrap{ padding-top: 40px; }
+}
+
+/* ---------- Extras para la versión multi-página ---------- */
+.flash-msg{
+  animation: fadeIn .2s ease;
+}
+.flash-msg.fade-out{
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.autocomplete-list{
+  position: absolute;
+  left: 0; right: 0;
+  background: var(--navy-2);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  margin-top: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+  z-index: 30;
+}
+.autocomplete-item{
+  padding: 9px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.autocomplete-item:hover{ background: rgba(255,255,255,0.08); }
+
+.search-wrap{ position: relative; }
+
+#fund-tabs .nav-link,
+#filter-tabs .nav-link{
+  color: var(--muted);
+  border-radius: 20px;
+  padding: 7px 15px;
+  font-size: 12.5px;
+  font-weight: 600;
+  margin: 0 3px 6px;
+}
+#fund-tabs .nav-link.active,
+#filter-tabs .nav-link.active{
+  background: linear-gradient(120deg, var(--green), var(--blue));
+  color: #171320;
+}
+
+.empty-state{
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 28px 10px;
+}
+
+/* ---------- Ilustración del login ---------- */
+.login-illustration{
+  display: flex;
+  justify-content: center;
+  margin: -8px 0 10px;
+}
+.login-illustration img{
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
+
+/* ---------- Inputs con ícono (login / formularios) ---------- */
+.input-icon-group{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon-group > i{
+  position: absolute;
+  left: 14px;
+  color: var(--muted);
+  font-size: 14px;
+  pointer-events: none;
+}
+.input-icon-group .form-control{
+  padding-left: 40px;
+}
+.input-icon-toggle{
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 15px;
+  padding: 4px;
+  display: flex;
+}
+.input-icon-toggle:hover{ color: var(--ink); }
+
+.text-gradient-inline{
+  background: linear-gradient(100deg, var(--green), var(--blue) 60%, var(--lavender));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
