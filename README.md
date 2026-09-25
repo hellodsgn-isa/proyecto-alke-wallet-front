@@ -27,7 +27,7 @@ Una billetera pensada para mujeres que están empezando a manejar su ingresos: c
 
 ## Estructura del Proyecto
 
-```text
+```
 Alke_wallet/
 ├── index.html
 ├── login.html
@@ -48,3 +48,7 @@ Alke_wallet/
 │   └── transactions.js
 └── assets/
     └── img/
+```
+## Capturas
+
+![Front](Alke_wallet/assets/img/Alke-Front.png)
